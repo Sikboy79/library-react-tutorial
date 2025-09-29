@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Price from "../components/ui/Price";
-import Book from "../components/ui/Book";
+
 
 const Cart = ({ cart, changeQuantity, removeItem }) => {
   const total = () => {
     let price = 0;
     cart.forEach((item) => {
-      price += +((item.salePrice || Book.originalPrice) * item.quantity);
+      price += +((item.salePrice || item.originalPrice) * item.quantity);
     });
     return price;
   };
@@ -29,7 +28,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               <div className="cart__body">
                 {cart.map((book) => {
                   return (
-                    <div className="cart__item">
+                    <div className="cart__item"key={book.id}>
                       <div className="cart__book">
                         <img
                           src={book.url}
@@ -41,8 +40,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                             {book.title}
                           </span>
                           <span className="cart__book--price">
-                            "$
-                            {(book.salePrice || book.originalPrice).toFixed(2)}"
+                            ${(book.salePrice || book.originalPrice).toFixed(2)}
                           </span>
                           <button
                             className="cart__book--remove"
@@ -77,7 +75,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               {cart.length === 0 && (
                 <div className="cart__empty">
                   <img
-                    src="../assets/empty_cart-HzaV3V1A.svg"
+                    src="https://cdn-icons-png.flaticon.com/256/11329/11329060.png"
                     alt=""
                     className="cart__empty--img"
                   ></img>
@@ -92,11 +90,11 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               <div className="total">
                 <div className="total__item total__sub-total">
                   <span>Subtotal</span>
-                  <span>${(total() * 0.9).toFixed(2)}</span>
+                  <span>${(total() * 0.8).toFixed(2)}</span>
                 </div>
                 <div className="total__item total__tax">
                   <span>Tax</span>
-                  <span>${(total() * 0.1).toFixed(2)}"</span>
+                  <span>${(total() * 0.1).toFixed(2)}</span>
                 </div>
                 <div className="total__item total__price">
                   <span>Total</span>

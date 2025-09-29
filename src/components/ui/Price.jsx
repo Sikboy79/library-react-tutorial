@@ -1,5 +1,4 @@
 import React from "react";
-import Book from "./Book";
 
 const Price = ({ salePrice, originalPrice }) => {
   return (
@@ -7,12 +6,12 @@ const Price = ({ salePrice, originalPrice }) => {
       {salePrice ? (
         <>
           <span className="book__price--normal">
-            ${Book.originalPrice.toFixed(2)}
+            ${originalPrice}
           </span>
-          {Book.salePrice.toFixed(2)}
+          ${salePrice}
         </>
       ) : (
-        <>${Book.originalPrice}</>
+        <>${originalPrice}</>
       )}
     </div>
   );

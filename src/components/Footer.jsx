@@ -21,7 +21,7 @@ const Footer = () => {
               {``}
               Books
             </Link>
-            <Link To="/cart" className="footer__link">
+            <Link to="/cart" className="footer__link">
               Cart
             </Link>
           </div>

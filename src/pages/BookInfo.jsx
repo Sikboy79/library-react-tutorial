@@ -39,10 +39,7 @@ console.log(id)
                 <h2 className="book__selected--title">{book.title}</h2>
                 <Rating rating={book.rating} />
                 <div className="book__selected--price">
-                  <Price
-                    origionalPrice={book.origionalPrice}
-                    salePrice={book.salePrice}
-                  />
+                  <Price salePrice={book.salePrice} originalPrice={book.originalPrice} />
                 </div>
                 <div className="book__sumary">
                   <h3 className="book__sumary--title">Sumary</h3>
@@ -61,12 +58,12 @@ console.log(id)
                 </div>
                 {bookExistsOnCart ? (
                   <Link to={`/cart`} className="book__link">
-                    <button className="btn">Checkout</button>
-                  </Link>
-                ) : (
-                  <button className="btn" onClick={() => addBookToCart(book)}>
+                    <button className="btn" onClick={() => addBookToCart(book)}>
                     Add to cart
                   </button>
+                  </Link>
+                ) : (
+                    <button className="btn">Checkout</button>
                 )}
               </div>
             </div>
