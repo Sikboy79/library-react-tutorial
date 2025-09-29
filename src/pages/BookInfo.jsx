@@ -6,7 +6,7 @@ import Price from "../components/ui/Price";
 import Book from "../components/ui/Book";
 import Cart from "./Cart";
 
-const BookInfo = ({ books, addToCart }) => {
+const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find(book => +book.id === +id);
 
@@ -15,7 +15,7 @@ const BookInfo = ({ books, addToCart }) => {
   }
 
   function bookExistsOnCart() {
-    return Cart.find(book => +book.id === +id);
+    return cart.find(book => +book.id === +id);
   }
 console.log(id)
   return (
