@@ -321,6 +321,7 @@ HIGHLIGHTS
 .highlight__wrapper {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 10vw;
 }
 
 .highlight {
@@ -406,6 +407,7 @@ FEATURES
 .book__title--skeleton {
   height: 21px;
   width: 100%;
+  max-width: 250px;
 }
 
 .book__rating--skeleton {
