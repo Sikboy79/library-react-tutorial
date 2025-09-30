@@ -4,34 +4,29 @@ import Rating from "./Rating";
 import Price from "./Price";
 
 const Book = ({ book }) => {
-  const [img, setImg] = useState();
-
-  const mountedRef = useRef(true);
+  const [img, setImg] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const image = new Image();
     image.src = book.url;
-    image.onLoad = () => {
+    image.onload = () => {
       setTimeout(() => {
-        if (mountedRef.current) {
           setImg(image);
-        }
+          setLoading(false);
       }, 300);
-    }
-    return () => {
-      mountedRef.current = false;
-    }
-  })
+    };
+  }, [book.url]);
 
   return (
     <div className="book">
-      { img ? (
+      {!loading && img ? (
         <>
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
               <img 
                 src={img.src} 
-                alt="" 
+                alt=""
                 className="book__img"
               />
             </figure>
